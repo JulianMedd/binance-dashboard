@@ -2,7 +2,7 @@ import CryptoCardContainer from "../components/results/CryptoCardContainer";
 import SideBar from "../components/sideBar/SideBar";
 
 export default function Home({data}) {
-  console.log(data)
+
   return (
     <div>
         <SideBar/>
