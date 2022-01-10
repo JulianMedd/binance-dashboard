@@ -8,7 +8,7 @@ const CryptoCardContainer = ({cryptos}) => {
     
     useEffect(() => {
         setBestyCryptos(bestsCryptos(cryptos))
-    }, [bestsCryptos])
+    }, [cryptos])
     return (
         <div className="flex flex-col ">
             <h3 className="mb-4 mx-4 md:mx-0 text-white text-xl px-4 pb-4 border-b-[1px] border-slate-400">
