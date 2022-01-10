@@ -40,7 +40,6 @@ a {
 .list::-webkit-scrollbar-thumb {
   background-color: #797979;
   border-radius: 20px;
-  border: 2px solid #f1f2f3;
 }
 
 .list::-webkit-scrollbar-track {
@@ -49,28 +48,27 @@ a {
 
 /*  */
 
-.app::-webkit-scrollbar {
+body::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
-.app::-webkit-scrollbar:vertical {
+body::-webkit-scrollbar:vertical {
   width:10px;
 }
 
-.app::-webkit-scrollbar-button:increment,.app::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button:increment,body::-webkit-scrollbar-button {
   display: none;
 } 
 
-.app::-webkit-scrollbar:horizontal {
+body::-webkit-scrollbar:horizontal {
   height: 10px;
 }
 
-.app::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background-color: #797979;
   border-radius: 20px;
-  border: 2px solid #f1f2f3;
 }
 
-.app::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   border-radius: 10px;  
 }

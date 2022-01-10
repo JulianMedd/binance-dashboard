@@ -1,15 +1,17 @@
 import CryptoCardContainer from "../components/results/CryptoCardContainer";
 import CryptoListContainer from "../components/results/CryptoListContainer";
+import ScrollToTop from "../components/ScrollToTop";
 import SideBar from "../components/sideBar/SideBar";
 
 export default function Home({data}) {
   return (
-    <div className="app">
+    <div>
         <SideBar/>
       <div className="mt-14 md:ml-40 md:mt-0 md:p-6 py-6 flex flex-col space-y-4">
         <CryptoCardContainer cryptos={data}/>
         <CryptoListContainer cryptos={data}/>
       </div>
+      <ScrollToTop/>
     </div>
   )
 }

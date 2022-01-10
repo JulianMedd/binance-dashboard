@@ -11,7 +11,7 @@ const CryptoCardContainer = ({cryptos}) => {
     }, [])
     return (
         <div className="flex flex-col ">
-            <h3 className="mb-4 mx-4 md:mx-0 text-white font-bold text-xl px-4 pb-4 border-b-[1px] border-slate-400">
+            <h3 className="mb-4 mx-4 md:mx-0 text-white text-xl px-4 pb-4 border-b-[1px] border-slate-400">
                 TOP 4
             </h3>
             <div className="flex justify-center items-stretch flex-wrap gap-2">
