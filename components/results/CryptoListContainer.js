@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import CryptoList from './CryptoList'
+import React, {useState} from 'react';
+import CryptoList from './CryptoList';
 
 const CryptoListContainer = ({cryptos}) => {
+    const [search, setSearch] = useState("")
+
+    const filterCryptos = cryptos.filter((crypto)=>crypto.symbol.toLowerCase().includes(search.toLowerCase()))
 
     return (
         <div className="flex flex-col">
@@ -10,14 +13,14 @@ const CryptoListContainer = ({cryptos}) => {
                     LISTA COMPLETA
                 </h3>
             </div>
-            <div className="bg-slate-800 rounded-[15px] h-80 w-full px-6 py-8 overflow-y-scroll">
-                <div>
-                    
+            <div className="list bg-slate-800 rounded-[15px] h-80 w-full px-6 py-8 overflow-y-scroll flex flex-col">
+                <div className="w-1/2">
+                    <input type="text" placeholder="Buscar Moneda" className="w-full bg-slate-700 text-thin text-white rounded-full border-0 px-4 py-2 mb-4 focus:outline-none focus:border-sky-500" onChange={e=>setSearch(e.target.value)}/> 
                 </div>
                 <div>
                     <CryptoList/>
                     {
-                        cryptos.map((crypto)=>{
+                        filterCryptos.map((crypto)=>{
                             return (
                                 <CryptoList
                                     key={crypto.symbol}
@@ -27,7 +30,7 @@ const CryptoListContainer = ({cryptos}) => {
                                     changePercent={crypto.priceChangePercent}
                                     lowPrice={crypto.lowPrice}
                                     highPrice={crypto.highPrice}
-                                    volume={crypto.volume}
+                                    volume={crypto.quoteVolume}
                                 />
                             )
                         })

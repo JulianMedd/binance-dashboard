@@ -4,7 +4,7 @@ import SideBar from "../components/sideBar/SideBar";
 
 export default function Home({data}) {
   return (
-    <div>
+    <div className="app">
         <SideBar/>
       <div className="mt-14 md:ml-40 md:mt-0 md:p-6 py-6 flex flex-col space-y-4">
         <CryptoCardContainer cryptos={data}/>
