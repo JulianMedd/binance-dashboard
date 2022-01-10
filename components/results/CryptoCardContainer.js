@@ -1,24 +1,26 @@
-import React, {useState, useEffect} from 'react'
-import CryptoCard from './CryptoCard'
+import React, {useState, useEffect, useContext} from 'react'
+import CryptoCard from './CryptoCard';
+import { CryptoContext } from '../../context/CryptoContext';
 
 const CryptoCardContainer = ({cryptos}) => {
     const [bestyCryptos, setBestyCryptos] = useState([])
-
-    const orderCrytosByPercent = () =>{
-        return cryptos.sort((cryptoA, cryptoB) =>(cryptoA.priceChangePercent < cryptoB.priceChangePercent) ? 1 : (cryptoA.priceChangePercent > cryptoB.priceChangePercent) ? -1 : 0  )
-    }
+    const { bestsCryptos } = useContext(CryptoContext)
     
     useEffect(() => {
-        let bestFourCrypto = orderCrytosByPercent().slice(0,4)
-        setBestyCryptos(bestFourCrypto)
+        setBestyCryptos(bestsCryptos(cryptos))
     }, [])
     return (
-        <div className="flex justify-center items-center flex-wrap gap-2">
-            {
-                bestyCryptos.map((crypto)=>{
-                    return <CryptoCard key={crypto.symbol} crypto={crypto}/>
-                })
-            }
+        <div className="flex flex-col ">
+            <h3 className="mb-4 mx-4 md:mx-0 text-white font-bold text-xl px-4 pb-4 border-b-[1px] border-slate-400">
+                TOP 4
+            </h3>
+            <div className="flex justify-center items-stretch flex-wrap gap-2">
+                {
+                    bestyCryptos.map((crypto)=>{
+                        return <CryptoCard key={crypto.symbol} crypto={crypto}/>
+                    })
+                }
+            </div>
         </div>
     )
 }
